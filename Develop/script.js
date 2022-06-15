@@ -1,12 +1,12 @@
 // Assignment code here
 
-function generatePassword () {
-
 //create variable
 var lowerCase = false;
 var upperCase = false;
 var number    = false;
 var symbol    = false;
+
+function generatePassword () {
 
 var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
 var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -18,28 +18,21 @@ var length = 0;
 var newPassword;
 
 //declare variable
-lowerCase = confirm("Do you want to include lower case letters? \n\n OK = Yes, Cancel = No");
-upperCase = confirm("Do you want to include upper case letters? \n\n OK = Yes, Cancel = No");
-number = confirm("Do you want to include numbers? \n\n OK = Yes, Cancel = No ");
-symbol = confirm("Do you want to include special characters? \n\n OK = Yes, Cancel = No");
+getCharType ();
 length = getPasswordLength ();
 
 //assemble included characters
 if (lowerCase == true) {
-  includedChar += lowerCaseChar; 
-  console.log ("lowerCase " + includedChar);
+  includedChar += lowerCaseChar;
 }
 if (upperCase == true) {
   includedChar += upperCaseChar;
-  console.log ("upperCase " + includedChar);
 }
 if (number == true) {
   includedChar += numberChar;
-  console.log ("number " + includedChar);
 }
 if (symbol == true) {
   includedChar += symbolChar;
-  console.log ("symbol " + includedChar);
 }
 
 //create password
@@ -58,6 +51,23 @@ charactersLength));
 return result;
 }
 
+//must select at least one charType
+function getCharType () {
+lowerCase = confirm("Do you want to include lower case letters? \n\n OK = Yes, Cancel = No");
+upperCase = confirm("Do you want to include upper case letters? \n\n OK = Yes, Cancel = No");
+number = confirm("Do you want to include numbers? \n\n OK = Yes, Cancel = No ");
+symbol = confirm("Do you want to include special characters? \n\n OK = Yes, Cancel = No");
+
+while ( lowerCase == false && upperCase == false && number == false && symbol == false) {
+  alert ("YOU MUST CHOOSE AT LEAST ONE CHARACTER TYPE!");
+
+lowerCase = confirm("Do you want to include lower case letters? \n\n OK = Yes, Cancel = No");
+upperCase = confirm("Do you want to include upper case letters? \n\n OK = Yes, Cancel = No");
+number = confirm("Do you want to include numbers? \n\n OK = Yes, Cancel = No ");
+symbol = confirm("Do you want to include special characters? \n\n OK = Yes, Cancel = No");
+}
+}
+
 //get and test password length
 function getPasswordLength () {
 
@@ -66,9 +76,9 @@ var captureLength = prompt("How many characters would you like to include? Must 
 
 //test for correct input criteria
 while ( captureLength <8 || captureLength >128 || isNaN (captureLength)) {
-  
+
   //alert to try again
-  captureLength = prompt("Attention!! Must be between number between 8 and 128");
+  captureLength = prompt("Attention!! Must be a number between 8 and 128");
 }
 return captureLength;
 }
