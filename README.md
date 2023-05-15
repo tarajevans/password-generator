@@ -12,13 +12,13 @@ Deployed URL: https://tarajevans.github.io/password-generator/<br><br>
 
 ![](Screenshot.png)<br><br>
 
-User Story<br><br>
+## User Story<br><br>
 
 AS AN employee with access to sensitive data<br>
 I WANT to randomly generate a password that meets certain criteria<br>
 SO THAT I can create a strong password that provides greater security<br><br>
 
-Acceptance Criteria<br><br>
+## Acceptance Criteria<br><br>
 
 GIVEN I need a new, secure password<br>
 WHEN I click the button to generate a password<br>

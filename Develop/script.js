@@ -1,5 +1,3 @@
-// Assignment code here
-
 //create variable
 var lowerCase = false;
 var upperCase = false;
